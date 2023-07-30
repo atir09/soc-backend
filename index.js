@@ -40,6 +40,15 @@ app.post("/user",async(req,res)=>{
     }
 })
 
+app.get("/user",async(req,res)=>{
+    try {
+        let data=await UserModel.find()
+        res.send(data)
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
 
 
 app.listen(process.env.PORT,async()=>{
